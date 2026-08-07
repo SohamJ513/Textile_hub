@@ -1,0 +1,352 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-textile-cream text-textile-brown antialiased bg-textile-pattern bg-pattern;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-textile-cream rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-textile-indigo to-textile-royal rounded-full;
+  }
+  
+  /* Selection Color */
+  ::selection {
+    @apply bg-textile-gold text-white;
+  }
+  
+  /* Focus Styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-textile-gold ring-offset-2 ring-offset-textile-cream;
+  }
+}
+
+@layer components {
+  /* ==================== TEXTILE THEME BUTTONS ==================== */
+  .btn-textile-primary {
+    @apply px-6 py-2.5 bg-gradient-to-r from-textile-indigo to-textile-royal text-white font-medium rounded-lg shadow-textile hover:shadow-textile-hover hover:scale-[1.02] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-textile-gold focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-textile-secondary {
+    @apply px-6 py-2.5 bg-textile-warm text-textile-brown font-medium rounded-lg border-2 border-textile-gold/50 hover:bg-textile-gold hover:text-white transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-textile-gold focus:ring-offset-2;
+  }
+  
+  .btn-textile-gold {
+    @apply px-6 py-2.5 bg-gradient-to-r from-textile-gold to-textile-amber text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-textile-gold focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-textile-terracotta {
+    @apply px-6 py-2.5 bg-gradient-to-r from-textile-terracotta to-textile-coral text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-textile-coral focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Legacy button support */
+  .btn-primary {
+    @apply btn-textile-primary;
+  }
+  
+  .btn-secondary {
+    @apply btn-textile-secondary;
+  }
+  
+  .btn-success {
+    @apply px-6 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-danger {
+    @apply px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-2.5 bg-transparent text-textile-indigo font-medium rounded-lg border-2 border-textile-indigo hover:bg-textile-indigo/10 hover:shadow-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-textile-gold focus:ring-offset-2;
+  }
+
+  /* ==================== TEXTILE THEME CARDS ==================== */
+  .card-textile {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl border-2 border-textile-gold/20 shadow-textile p-6 hover:shadow-textile-hover transition-all duration-300 hover:border-textile-gold/40;
+  }
+  
+  .card-textile-warm {
+    @apply bg-textile-warm/80 backdrop-blur-sm rounded-2xl border-2 border-textile-thread/20 shadow-textile p-6 hover:shadow-textile-hover transition-all duration-300 hover:border-textile-thread/40;
+  }
+
+  /* Legacy card support */
+  .card {
+    @apply card-textile;
+  }
+  
+  .card-dark {
+    @apply bg-textile-charcoal/80 backdrop-blur-sm rounded-2xl border-2 border-textile-gold/20 shadow-textile p-6 hover:shadow-textile-hover transition-all duration-300 text-textile-cream;
+  }
+  
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-sm rounded-2xl border border-white/50 shadow-soft p-6 hover:shadow-lg transition-all duration-300;
+  }
+
+  /* ==================== TEXTILE GRADIENTS ==================== */
+  .gradient-textile {
+    @apply bg-gradient-to-r from-textile-indigo via-textile-royal to-textile-gold bg-clip-text text-transparent;
+  }
+  
+  .gradient-textile-warm {
+    @apply bg-gradient-to-r from-textile-gold to-textile-terracotta bg-clip-text text-transparent;
+  }
+
+  /* Legacy gradient support */
+  .gradient-text {
+    @apply gradient-textile;
+  }
+  
+  .gradient-text-secondary {
+    @apply gradient-textile-warm;
+  }
+  
+  .gradient-text-green {
+    @apply bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent;
+  }
+
+  /* ==================== TEXTILE GLASS EFFECTS ==================== */
+  .glass-textile {
+    @apply bg-white/70 backdrop-blur-md border-2 border-textile-gold/20 shadow-textile;
+  }
+  
+  .glass-textile-warm {
+    @apply bg-textile-cream/70 backdrop-blur-md border-2 border-textile-thread/20 shadow-textile;
+  }
+
+  /* Legacy glass support */
+  .glass-effect {
+    @apply glass-textile;
+  }
+  
+  .glass-effect-dark {
+    @apply bg-textile-charcoal/70 backdrop-blur-md border-2 border-textile-gold/20 shadow-textile text-textile-cream;
+  }
+
+  /* ==================== TEXTILE BADGES ==================== */
+  .badge-textile-gold {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full border-2 border-textile-gold bg-textile-gold/10 text-textile-amber;
+  }
+  
+  .badge-textile-indigo {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full border-2 border-textile-indigo bg-textile-indigo/10 text-textile-indigo;
+  }
+
+  /* Legacy badge support */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full border transition-all duration-200;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-100 text-green-800 border-green-200;
+  }
+  
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+  
+  .badge-danger {
+    @apply badge bg-red-100 text-red-800 border-red-200;
+  }
+  
+  .badge-info {
+    @apply badge bg-blue-100 text-blue-800 border-blue-200;
+  }
+  
+  .badge-neutral {
+    @apply badge bg-gray-100 text-gray-800 border-gray-200;
+  }
+
+  /* ==================== TEXTILE INPUTS ==================== */
+  .input-field {
+    @apply w-full px-4 py-2.5 border-2 border-textile-gold/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-textile-gold focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm text-textile-brown;
+  }
+  
+  .input-field-error {
+    @apply w-full px-4 py-2.5 border-2 border-textile-terracotta rounded-lg focus:outline-none focus:ring-2 focus:ring-textile-terracotta focus:border-transparent transition-all duration-200 bg-red-50/50;
+  }
+  
+  .input-label {
+    @apply block text-sm font-medium text-textile-brown mb-1.5;
+  }
+  
+  .input-help {
+    @apply mt-1 text-xs text-textile-brown/70;
+  }
+  
+  .input-error {
+    @apply mt-1 text-xs text-textile-terracotta;
+  }
+
+  /* ==================== TEXTILE STATUS INDICATORS ==================== */
+  .status-dot {
+    @apply inline-block w-2.5 h-2.5 rounded-full;
+  }
+  
+  .status-dot-green {
+    @apply status-dot bg-green-500 animate-pulse;
+  }
+  
+  .status-dot-gold {
+    @apply status-dot bg-textile-gold animate-pulse;
+  }
+  
+  .status-dot-red {
+    @apply status-dot bg-textile-terracotta animate-pulse;
+  }
+  
+  .status-dot-blue {
+    @apply status-dot bg-textile-indigo animate-pulse;
+  }
+
+  /* ==================== TEXTILE LOADING ==================== */
+  .loading-spinner {
+    @apply w-12 h-12 border-4 border-textile-gold/20 border-t-textile-indigo rounded-full animate-spin;
+  }
+  
+  .loading-dots {
+    @apply flex items-center gap-1.5;
+  }
+  
+  .loading-dot {
+    @apply w-2.5 h-2.5 bg-textile-indigo rounded-full animate-bounce;
+  }
+  
+  .loading-dot:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .loading-dot:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  /* ==================== TEXTILE DIVIDERS ==================== */
+  .divider {
+    @apply flex items-center gap-4 my-6;
+  }
+  
+  .divider-line {
+    @apply flex-1 h-px bg-gradient-to-r from-transparent via-textile-gold/50 to-transparent;
+  }
+  
+  .divider-text {
+    @apply text-sm text-textile-brown/70 whitespace-nowrap;
+  }
+
+  /* ==================== TEXTILE HERO ==================== */
+  .hero-textile {
+    @apply bg-gradient-to-br from-textile-indigo via-textile-royal to-textile-gold text-white;
+  }
+  
+  .hero-textile-warm {
+    @apply bg-gradient-to-br from-textile-cream via-textile-warm to-textile-linen text-textile-brown;
+  }
+
+  /* Legacy hero support */
+  .hero-gradient {
+    @apply hero-textile;
+  }
+
+  /* ==================== TEXTILE CONTAINERS ==================== */
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-textile-brown mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-textile-brown/70 max-w-2xl;
+  }
+
+  /* ==================== TEXTILE GRID ==================== */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  }
+
+  /* ==================== TEXTILE ANIMATIONS ==================== */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .animate-weave {
+    animation: weave 4s ease-in-out infinite;
+  }
+  
+  .animate-thread {
+    animation: thread 8s linear infinite;
+  }
+  
+  .animate-fabric-shimmer {
+    animation: fabricShimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  @keyframes weave {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.02); }
+  }
+  
+  @keyframes thread {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes fabricShimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+
+  /* ==================== UTILITY ==================== */
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ==================== TEXTILE PATTERNS ==================== */
+  .bg-textile-pattern-custom {
+    @apply bg-textile-pattern bg-pattern;
+  }
+}
