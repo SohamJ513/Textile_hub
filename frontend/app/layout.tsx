@@ -17,8 +17,23 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
+// Safe site URL: never crashes the build if the env var is missing or malformed
+function getSiteUrl(): URL {
+  const raw = (process.env.NEXT_PUBLIC_SITE_URL || '').trim().replace(/\/+$/, '');
+  const candidates = [raw, raw && `https://${raw}`, 'http://localhost:3000'];
+  for (const c of candidates) {
+    if (!c) continue;
+    try {
+      return new URL(c);
+    } catch {
+      // try next candidate
+    }
+  }
+  return new URL('http://localhost:3000');
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: getSiteUrl(),
   title: {
     default: 'TextileHub - B2B Textile Marketplace',
     template: '%s | TextileHub',
