@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
@@ -18,6 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
     default: 'TextileHub - B2B Textile Marketplace',
     template: '%s | TextileHub',
@@ -73,12 +74,6 @@ export const metadata: Metadata = {
     ],
     shortcut: ['/favicon.ico'],
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   alternates: {
     canonical: 'https://textilehub.com',
     languages: {
@@ -88,7 +83,6 @@ export const metadata: Metadata = {
   },
   // ✅ Comment out manifest if file doesn't exist
   // manifest: '/manifest.json',
-  themeColor: '#1a237e',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
@@ -112,6 +106,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#1a237e',
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -122,7 +124,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="theme-color" content="#1a237e" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className={`${inter.className} bg-textile-cream text-textile-brown antialiased`}>
